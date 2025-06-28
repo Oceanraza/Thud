@@ -77,9 +77,24 @@
 }
 
 body {
-  --main-toolbar-background: #263238;
+  --main-toolbar-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --ion-text-color: #1e293b;
-  --fixed-light: #f4f5f8;
+  --fixed-light: #f8fafc;
+  --card-background: #ffffff;
+  --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --primary-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  
+  /* Nouvelles variables modernes */
+  --glass-background: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --modern-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --hover-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  --subtle-border: rgba(0, 0, 0, 0.08);
+  --modern-radius: 16px;
+  --content-padding: 20px;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --backdrop-blur: blur(12px);
 }
 
 body.dark {
@@ -98,6 +113,21 @@ body.dark {
   --ion-color-secondary: #50c8ff;
   --ion-color-secondary-rgb: 80,200,255;
   --ion-color-secondary-contrast: #ffffff;
+  
+  --main-toolbar-background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  --card-background: #1e293b;
+  --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  --accent-gradient: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+  --primary-gradient: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  
+  /* Nouvelles variables dark modernes */
+  --glass-background: rgba(30, 41, 59, 0.3);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --modern-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --hover-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  --subtle-border: rgba(255, 255, 255, 0.1);
+  --content-background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  
   --ion-color-secondary-contrast-rgb: 255,255,255;
   --ion-color-secondary-shade: #46b0e0;
   --ion-color-secondary-tint: #62ceff;

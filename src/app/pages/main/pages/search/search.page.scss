@@ -1,3 +1,93 @@
 .main-toolbar {
   --background: var(--main-toolbar-background);
+  backdrop-filter: var(--backdrop-blur);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.15) 0%, transparent 100%);
+    z-index: 1;
+  }
+  
+  ion-title {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+/* Barre de recherche moderne */
+.search-container {
+  padding: var(--content-padding);
+  
+  .search-bar {
+    background: var(--glass-background);
+    backdrop-filter: var(--backdrop-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--modern-radius);
+    padding: 16px 20px;
+    box-shadow: var(--modern-shadow);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: var(--transition-smooth);
+    
+    &:focus-within {
+      border-color: var(--ion-color-primary);
+      box-shadow: var(--hover-shadow);
+      transform: translateY(-1px);
+    }
+    
+    ion-icon {
+      font-size: 1.25rem;
+      opacity: 0.7;
+    }
+    
+    input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 1rem;
+      color: var(--ion-text-color);
+      
+      &::placeholder {
+        color: var(--ion-text-color);
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+.dark .search-container .search-bar {
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Section découverte */
+.discover-section {
+  margin: 2rem 0;
+  
+  .section-header {
+    padding: 0 var(--content-padding);
+    margin-bottom: 1rem;
+    
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ion-text-color);
+      margin: 0;
+    }
+    
+    .section-subtitle {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-top: 0.25rem;
+    }
+  }
 }

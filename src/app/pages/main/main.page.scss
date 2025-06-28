@@ -2,6 +2,138 @@
   --background: var(--main-toolbar-background);
 }
 
-.active {
-  color: var(--ion-text-color) !important;
+/* Navigation moderne */
+.nav-container {
+  position: relative;
+  padding: 12px;
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 24px;
+  z-index: 1;
+}
+
+.dark .nav-background {
+  background: rgba(30, 41, 59, 0.9);
+}
+
+.nav-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  
+  &:hover {
+    background: rgba(59, 130, 246, 0.1);
+    transform: translateY(-1px);
+  }
+  
+  &.active {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
+    transform: translateY(-2px);
+    
+    .nav-icon {
+      color: white;
+      transform: scale(1.1);
+    }
+    
+    .nav-label {
+      color: white;
+      font-weight: 600;
+    }
+  }
+}
+
+.nav-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.nav-icon {
+  font-size: 20px;
+  color: #64748b;
+  transition: all 0.3s ease;
+}
+
+.nav-indicator {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.nav-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #64748b;
+  margin-top: 4px;
+  transition: all 0.3s ease;
+  text-align: center;
+  line-height: 1;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateX(-50%) scale(1.2);
+  }
+}
+
+.dark .nav-icon {
+  color: #94a3b8;
+}
+
+.dark .nav-label {
+  color: #94a3b8;
+}
+
+.dark .nav-item:hover {
+  background: rgba(59, 130, 246, 0.15);
+}
+
+/* Scrollbar hide utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

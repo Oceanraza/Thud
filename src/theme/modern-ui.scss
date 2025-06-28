@@ -1,0 +1,213 @@
+/* Modern UI Enhancements for Thud */
+
+/* Scrollbar moderne */
+* {
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    
+    &:hover {
+      background: rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+.dark * {
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+  }
+}
+
+/* Liste Ionic moderne */
+ion-list {
+  background: transparent !important;
+  
+  ion-item {
+    --background: var(--glass-background);
+    --border-color: var(--glass-border);
+    --border-width: 1px;
+    --border-radius: 12px;
+    --padding-start: 20px;
+    --padding-end: 20px;
+    --margin-bottom: 8px;
+    
+    margin-bottom: 8px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.dark ion-list ion-item {
+  --background: rgba(30, 41, 59, 0.3);
+  --border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Boutons modernes */
+ion-button {
+  --border-radius: 12px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &:hover {
+    transform: translateY(-1px);
+    --box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  &.button-solid {
+    --background: var(--primary-gradient);
+  }
+}
+
+/* Headers modernes */
+ion-header {
+  &::after {
+    display: none;
+  }
+}
+
+ion-toolbar {
+  --min-height: 60px;
+  --padding-top: 8px;
+  --padding-bottom: 8px;
+}
+
+/* Modales modernes */
+ion-modal {
+  --border-radius: 20px;
+  --box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  --backdrop-opacity: 0.6;
+  
+  &::part(backdrop) {
+    backdrop-filter: blur(20px);
+  }
+}
+
+/* Cartes modernes */
+.modern-card {
+  background: var(--glass-background);
+  backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--modern-radius);
+  box-shadow: var(--modern-shadow);
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  
+  &:hover {
+    box-shadow: var(--hover-shadow);
+    transform: translateY(-2px);
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+.dark .modern-card {
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animations fluides */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.4s ease-out;
+}
+
+/* Utilitaires */
+.glass-effect {
+  background: var(--glass-background);
+  backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+}
+
+.modern-shadow {
+  box-shadow: var(--modern-shadow);
+}
+
+.hover-lift {
+  transition: var(--transition-smooth);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--hover-shadow);
+  }
+}
+
+/* Loading skeletons modernes */
+ion-skeleton-text {
+  --background: linear-gradient(90deg, rgba(0,0,0,0.1) 25%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.1) 75%);
+  --background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.dark ion-skeleton-text {
+  --background: linear-gradient(90deg, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.1) 75%);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}

@@ -1,21 +1,197 @@
 .main-toolbar {
-  --background: var(--main-toolbar-background);
+  background: var(--main-toolbar-background) !important;
+  backdrop-filter: var(--backdrop-blur);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.15) 0%, transparent 100%);
+    z-index: 1;
+  }
+  
+  ion-title {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.settings-section {
+  background: var(--glass-background);
+  backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--modern-radius);
+  margin: 15px var(--content-padding);
+  padding: 24px;
+  box-shadow: var(--modern-shadow);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  
+  &:hover {
+    box-shadow: var(--hover-shadow);
+    transform: translateY(-1px);
+  }
+}
+
+.settings-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.dark .settings-section {
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.theme-selector {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.theme-card {
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.theme-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.theme-card.selected {
+  border: 3px solid #3b82f6 !important;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+.theme-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.theme-card:hover::before {
+  opacity: 1;
+}
+
+.article-color-palette {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  cursor: pointer;
+}
+
+.article-color-palette:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.article-color-palette.selected {
+  border: 4px solid #3b82f6 !important;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3);
 }
 
 .article-color-palette {
   &.default {
-    background: #f9f9f9 !important;
+    background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%) !important;
   }
   &.lightbrown {
-    background: #d8cdbd !important;
+    background: linear-gradient(135deg, #d8cdbd 0%, #e6dcc6 100%) !important;
   }
   &.lightgrey {
-    background: #bebebe !important;
+    background: linear-gradient(135deg, #bebebe 0%, #d1d1d1 100%) !important;
   }
   &.mediumgrey {
-    background: #838383 !important;
+    background: linear-gradient(135deg, #838383 0%, #969696 100%) !important;
   }
   &.darkgrey {
-    background: #303030 !important;
+    background: linear-gradient(135deg, #303030 0%, #424242 100%) !important;
   }
+}
+
+.setting-item {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  margin: 8px 0;
+  padding: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.setting-item:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: translateX(4px);
+}
+
+.range-control {
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  border-radius: 25px;
+  padding: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.range-control::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255,255,255,0.8) 0%, transparent 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.segment-control {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  padding: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.dark .settings-section {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .setting-item {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .setting-item:hover {
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.dark .range-control {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+.dark .segment-control {
+  background: rgba(30, 41, 59, 0.8);
 }

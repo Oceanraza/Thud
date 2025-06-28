@@ -1,17 +1,24 @@
 <ion-router-outlet id="main"></ion-router-outlet>
 
-<!-- Tabs -->
-<div class="absolute bottom-4 le w-full h-fit pointer-events-none flex justify-center">
-  <div class="bg-white dark:!bg-slate-800 shadow-lg border border-slate-100 dark:!border-slate-900 rounded-2xl flex pointer-events-auto overflow-hidden">
-    @for (tab of tabs; track tab) {
-      <div
-        class="w-16 py-2 flex justify-center items-center relative cursor-pointer"
-        [routerLink]="tab.url">
-        <div class="w-fit h-fit text-center text-slate-500 dark:!text-slate-500 text-xl -mb-1"
-          [ngClass]="{'active drop-shadow-md !text-2xl': tab.isActive}">
-          <ion-icon class="m-auto" [name]="tab.icon"></ion-icon>
+<!-- Navigation moderne améliorée -->
+<div class="fixed bottom-6 left-0 right-0 pointer-events-none flex justify-center z-50">
+  <div class="nav-container pointer-events-auto">
+    <div class="nav-background"></div>
+    <div class="nav-content">
+      @for (tab of tabs; track tab) {
+        <div
+          class="nav-item"
+          [class.active]="tab.isActive"
+          [routerLink]="tab.url">
+          <div class="nav-icon-wrapper">
+            <ion-icon [name]="tab.icon" class="nav-icon"></ion-icon>
+            @if (tab.isActive) {
+              <div class="nav-indicator"></div>
+            }
+          </div>
+          <span class="nav-label">{{ tab.title }}</span>
         </div>
-      </div>
-    }
+      }
+    </div>
   </div>
 </div>
